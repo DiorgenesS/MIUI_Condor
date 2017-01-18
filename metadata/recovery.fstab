@@ -1,0 +1,13 @@
+/system	ext4	/dev/block/platform/msm_sdcc.1/by-name/system
+/data	ext4	/dev/block/platform/msm_sdcc.1/by-name/userdata
+/cache	ext4	/dev/block/platform/msm_sdcc.1/by-name/cache
+/boot	emmc	/dev/block/platform/msm_sdcc.1/by-name/boot
+/recovery	emmc	/dev/block/platform/msm_sdcc.1/by-name/recovery
+/misc	emmc	/dev/block/platform/msm_sdcc.1/by-name/misc
+		
+/firmware	ext4	/dev/block/platform/msm_sdcc.1/by-name/modem
+/modem_st1	emmc	/dev/block/platform/msm_sdcc.1/by-name/modemst1
+/modem_st2	emmc	/dev/block/platform/msm_sdcc.1/by-name/modemst2
+		
+/external_sd	auto	/dev/block/mmcblk1p1
+/sd-ext	auto	/dev/block/mmcblk1p2
