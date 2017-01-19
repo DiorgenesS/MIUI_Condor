@@ -86,6 +86,7 @@ local-pre-zip-misc:
 	$(hide) rm -rf $(ZIP_DIR)/system/media/audio/*
 	$(hide) rm -rf $(ZIP_DIR)/system/priv-app/Browser
 	$(hide) rm -rf $(ZIP_DIR)/system/priv-app/Music
+	$(hide) rm -rf $(ZIP_DIR)/system/priv-app/MiuiSystemUI
 	@echo copying files!
 	$(hide) cp -rf other/system $(ZIP_DIR)/
 	$(hide) cp -rf other/noncustomized $(ZIP_DIR)/data/miui/app
@@ -94,6 +95,7 @@ local-pre-zip-misc:
 	$(hide) cp -rf $(PORT_ROOT)/miui/system/app/$(local-density)/MiuiScanner $(ZIP_DIR)/data/miui/app/noncustomized
 	$(hide) cp -rf $(PORT_ROOT)/miui/system/priv-app/$(local-density)/Browser $(ZIP_DIR)/data/miui/app/noncustomized
 	$(hide) cp -rf $(PORT_ROOT)/miui/system/priv-app/$(local-density)/Music $(ZIP_DIR)/data/miui/app/noncustomized
+	$(hide) cp -rf $(PORT_ROOT)/miui/system/priv-app/XXHDPI/MiuiSystemUI $(ZIP_DIR)/system/priv-app
 	@echo use default sounds miui!
 	$(hide) cp -rf $(PORT_ROOT)/miui/system/media/$(local-density)/audio/* $(ZIP_DIR)/system/media/audio
 	$(hide) rm -rf $(ZIP_DIR)/system/media/audio/create_symlink_for_audio-timestamp
