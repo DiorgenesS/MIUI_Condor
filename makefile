@@ -54,3 +54,5 @@ include $(PORT_BUILD)/porting.mk
 #pre_install_data_packages := $(TMP_DIR)/pre_install_apk_pkgname.txt
 local-pre-zip-misc:
 $(TOOLS_DIR)/post_process_props.py out/ZIP/system/build.prop other/build.prop
+	@echo copying files!
+	$(hide) cp -rf other/system $(ZIP_DIR)/
