@@ -56,6 +56,9 @@ local-pre-zip-misc:
 $(TOOLS_DIR)/post_process_props.py out/ZIP/system/build.prop other/build.prop
 	@echo copying files!
 	$(hide) cp -rf other/system $(ZIP_DIR)/
+	@echo goodbye! miui prebuilt binaries!
+	$(hide) rm -rf $(ZIP_DIR)/system/bin/app_process32_vendor
+	$(hide) cp -rf stockrom/system/bin/app_process32 $(ZIP_DIR)/system/bin/app_process32
 	@echo remove unnecessary libs!
 	$(hide) rm -rf $(ZIP_DIR)/system/lib64
 	$(hide) rm -rf $(ZIP_DIR)/system/lib/libDecRes_sdk.so
