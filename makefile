@@ -54,8 +54,6 @@ include $(PORT_BUILD)/porting.mk
 #pre_install_data_packages := $(TMP_DIR)/pre_install_apk_pkgname.txt
 local-pre-zip-misc:
 	$(TOOLS_DIR)/post_process_props.py out/ZIP/system/build.prop other/build.prop
-	@echo copying files!
-	$(hide) cp -rf other/system $(ZIP_DIR)/
 	@echo goodbye! miui prebuilt binaries!
 	$(hide) rm -rf $(ZIP_DIR)/system/bin/app_process32_vendor
 	$(hide) cp -rf stockrom/system/bin/app_process32 $(ZIP_DIR)/system/bin/app_process32
@@ -75,9 +73,27 @@ local-pre-zip-misc:
 	$(hide) rm -rf $(ZIP_DIR)/system/lib/libxmpass_sdk_patcher.so
 	$(hide) rm -rf $(ZIP_DIR)/system/lib/xmpass_libweibosdkcore.so
 	@echo remove unnecessary files!
+	$(hide) rm -rf $(ZIP_DIR)/data/miui/app/*
+	$(hide) rm -rf $(ZIP_DIR)/data/miui/prebuilts
+	$(hide) rm -rf $(ZIP_DIR)/data/miui/videoplugins
+	$(hide) rm -rf $(ZIP_DIR)/data/miui/yellowpage
+	$(hide) rm -rf $(ZIP_DIR)/data/miui/cts.prop
+	$(hide) rm -rf $(ZIP_DIR)/data/miui/resolves_miui.conf
 	$(hide) rm -rf $(ZIP_DIR)/system/recovery-from-boot.p
+	$(hide) rm -rf $(ZIP_DIR)/system/app/MiuiCompass
+	$(hide) rm -rf $(ZIP_DIR)/system/app/MiuiScanner
 	$(hide) rm -rf $(ZIP_DIR)/system/etc/CHANGELOG-CM.txt
-	rm -rf $(ZIP_DIR)/system/media/audio/*
+	$(hide) rm -rf $(ZIP_DIR)/system/media/audio/*
+	$(hide) rm -rf $(ZIP_DIR)/system/priv-app/Browser
+	$(hide) rm -rf $(ZIP_DIR)/system/priv-app/Music
+	@echo copying files!
+	$(hide) cp -rf other/system $(ZIP_DIR)/
+	$(hide) cp -rf other/noncustomized $(ZIP_DIR)/data/miui/app
+	$(hide) cp -rf $(PORT_ROOT)/miui/data/miui/app/customized/ota-miui-MiGalleryLockscreen $(ZIP_DIR)/data/miui/app/noncustomized
+	$(hide) cp -rf $(PORT_ROOT)/miui/system/app/$(local-density)/MiuiCompass $(ZIP_DIR)/data/miui/app/noncustomized
+	$(hide) cp -rf $(PORT_ROOT)/miui/system/app/$(local-density)/MiuiScanner $(ZIP_DIR)/data/miui/app/noncustomized
+	$(hide) cp -rf $(PORT_ROOT)/miui/system/priv-app/$(local-density)/Browser $(ZIP_DIR)/data/miui/app/noncustomized
+	$(hide) cp -rf $(PORT_ROOT)/miui/system/priv-app/$(local-density)/Music $(ZIP_DIR)/data/miui/app/noncustomized
 	@echo use default sounds miui!
-	cp -rf $(PORT_ROOT)/miui/system/media/$(local-density)/audio/* $(ZIP_DIR)/system/media/audio
-	rm -rf $(ZIP_DIR)/system/media/audio/create_symlink_for_audio-timestamp
+	$(hide) cp -rf $(PORT_ROOT)/miui/system/media/$(local-density)/audio/* $(ZIP_DIR)/system/media/audio
+	$(hide) rm -rf $(ZIP_DIR)/system/media/audio/create_symlink_for_audio-timestamp
