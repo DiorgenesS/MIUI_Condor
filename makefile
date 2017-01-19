@@ -74,3 +74,7 @@ $(TOOLS_DIR)/post_process_props.py out/ZIP/system/build.prop other/build.prop
 	@echo remove unnecessary files!
 	$(hide) rm -rf $(ZIP_DIR)/system/recovery-from-boot.p
 	$(hide) rm -rf $(ZIP_DIR)/system/etc/CHANGELOG-CM.txt
+	rm -rf $(ZIP_DIR)/system/media/audio/*
+	@echo use default sounds miui!
+	cp -rf $(PORT_ROOT)/miui/system/media/$(local-density)/audio/* $(ZIP_DIR)/system/media/audio
+	rm -rf $(ZIP_DIR)/system/media/audio/create_symlink_for_audio-timestamp
