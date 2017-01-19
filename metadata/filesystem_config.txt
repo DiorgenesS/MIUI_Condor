@@ -512,6 +512,8 @@ system/etc/dhcpcd/dhcpcd.conf 0 0 644 selabel=u:object_r:system_file:s0 capabili
 system/etc/dhcpcd/dhcpcd-hooks 0 0 755 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/etc/dhcpcd/dhcpcd-hooks/20-dns.conf 0 0 644 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/etc/dhcpcd/dhcpcd-hooks/95-configured 0 0 644 selabel=u:object_r:system_file:s0 capabilities=0x0
+system/etc/device_features 0 0 755 selabel=u:object_r:system_file:s0 capabilities=0x0
+system/etc/device_features/condor.xml 0 0 644 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/etc/firmware 0 0 755 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/etc/firmware/a300_pfp.fw 0 0 644 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/etc/firmware/a300_pm4.fw 0 0 644 selabel=u:object_r:system_file:s0 capabilities=0x0
