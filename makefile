@@ -19,9 +19,9 @@ local-modified-apps :=
 local-modified-jars := org.cyanogenmod.platform
 
 # All apks from MIUI
-local-miui-removed-apps := BugReport FM GameCenter MiuiCamera MiGameCenterSDKService MiLivetalk Mipay MiuiVideo MiuiVoip QuickSearchBox SogouInput SystemAdSolution VoiceAssist WebViewGoogle XiaomiVip XMPass
+local-miui-removed-apps := Browser BugReport Email FM GameCenter MiuiCamera MiuiCompass MiuiScanner MiGameCenterSDKService MiLivetalk Mipay MiuiVideo MiuiVoip Music QuickSearchBox SogouInput SystemAdSolution VoiceAssist WebViewGoogle XiaomiVip XMPass
 
-local-miui-modified-apps := InCallUI TeleService
+local-miui-modified-apps := InCallUI MiuiSystemUI TeleService
 
 # Config density for co-developers to use the aaps with HDPI or XHDPI resource,
 # Default configrations are HDPI for ics branch and XHDPI for jellybean branch
@@ -80,13 +80,8 @@ local-pre-zip-misc:
 	$(hide) rm -rf $(ZIP_DIR)/data/miui/cts.prop
 	$(hide) rm -rf $(ZIP_DIR)/data/miui/resolves_miui.conf
 	$(hide) rm -rf $(ZIP_DIR)/system/recovery-from-boot.p
-	$(hide) rm -rf $(ZIP_DIR)/system/app/MiuiCompass
-	$(hide) rm -rf $(ZIP_DIR)/system/app/MiuiScanner
 	$(hide) rm -rf $(ZIP_DIR)/system/etc/CHANGELOG-CM.txt
 	$(hide) rm -rf $(ZIP_DIR)/system/media/audio/*
-	$(hide) rm -rf $(ZIP_DIR)/system/priv-app/Browser
-	$(hide) rm -rf $(ZIP_DIR)/system/priv-app/Music
-	$(hide) rm -rf $(ZIP_DIR)/system/priv-app/MiuiSystemUI
 	@echo copying files!
 	$(hide) cp -rf other/system $(ZIP_DIR)/
 	$(hide) cp -rf other/noncustomized $(ZIP_DIR)/data/miui/app
@@ -95,7 +90,6 @@ local-pre-zip-misc:
 	$(hide) cp -rf $(PORT_ROOT)/miui/system/app/$(local-density)/MiuiScanner $(ZIP_DIR)/data/miui/app/noncustomized
 	$(hide) cp -rf $(PORT_ROOT)/miui/system/priv-app/$(local-density)/Browser $(ZIP_DIR)/data/miui/app/noncustomized
 	$(hide) cp -rf $(PORT_ROOT)/miui/system/priv-app/$(local-density)/Music $(ZIP_DIR)/data/miui/app/noncustomized
-	$(hide) cp -rf $(PORT_ROOT)/miui/system/priv-app/XXHDPI/MiuiSystemUI $(ZIP_DIR)/system/priv-app
 	@echo use default sounds miui!
 	$(hide) cp -rf $(PORT_ROOT)/miui/system/media/$(local-density)/audio/* $(ZIP_DIR)/system/media/audio
 	$(hide) rm -rf $(ZIP_DIR)/system/media/audio/create_symlink_for_audio-timestamp
