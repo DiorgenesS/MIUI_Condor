@@ -5,6 +5,7 @@ private-phone-apps := \
 	BasicDreams \
 	Bluetooth \
 	BluetoothExt \
+	BluetoothMidiService \
 	CertInstaller \
 	KeyChain \
 	LatinIME \
@@ -14,6 +15,7 @@ private-phone-apps := \
 	PrintSpooler \
 	Stk \
 	telresources \
+	UserDictionaryProvider \
 	WAPPushManager \
 	webview 
 
